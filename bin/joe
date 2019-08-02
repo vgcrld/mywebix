@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+
+require 'mywebix'
+
+module MyWebix
+
+  class Joe
+
+    attr_reader :name
+
+    def initialize(name: '<not available>')
+      @name = name
+    end
+
+  end
+
+  x = Joe.new name: "Joe Davis"
+  y = Joe.new 
+
+  puts "Your name is: #{x.name}"
+  puts "Your name is: #{y.name}"
+
+
+  
+
+end
+
+
+

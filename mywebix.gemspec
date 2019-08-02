@@ -1,9 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "mywebix/version"
 
 Gem::Specification.new do |spec|
+
+  require "mywebix/version"
+
   spec.name          = "mywebix"
   spec.version       = MyWebix::VERSION
   spec.authors       = ["Rich Davis"]
@@ -20,6 +22,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  # puts "Executables: #{spec.executables}"
 
   spec.add_dependency "haml"
   spec.add_dependency "sinatra"
