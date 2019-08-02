@@ -1,1 +1,44 @@
-%h1 My Webix Viewer
+!!! 5
+%html
+  %head
+    %link{ :rel => "stylesheet", :href => "javascript/webix.css", :type => "text/css", :charset => "utf-8" }
+    %script{ :src => "javascript/jquery.js",   :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "javascript/feedback.js", :type => "text/javascript", :charset => "utf-8" }
+    %script{ :src => "javascript/webix.js",    :type => "text/javascript", :charset => "utf-8" }
+  
+  %body
+    %h1 My Testing Area
+    #container1
+
+:javascript
+  webix.ready(function() {
+
+    //webix.ajax().get("fromserver", {}, function(text,xml,xhr) { fromserver=text });
+    fromserver = webix.ajax("fromserver");
+
+    webix.ui({
+
+      container: "container1",
+
+      rows: [
+
+        { view: "toolbar", id: "mybar", elements: [
+          { view: "button", value: "Add", width: 70 },
+          { view: "button", value: "Delete", width: 70 },
+          { view: "button", value: "Update", width: 70 },
+          { view: "button", value: "Clear Form", width: 85 } ]
+        },
+
+        { cols: [
+          { view: "form", id: "myform", width: 300, elements: [
+            { view: "text", name: "title", placeholder: "Title", width: 250, align: "center" },
+            { view: "text", name: "year",  placeholder: "Title", width: 250, align: "center" } ],
+          },
+          { view: "resizer" },
+          { view: "text", align: "left" } ]
+        }
+
+      ]
+
+    });
+  });
