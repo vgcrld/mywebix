@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'rack'
+require 'mywebix'
+
+app = MyWebix::Viewer
+
+Rack::Handler::WEBrick.run app
